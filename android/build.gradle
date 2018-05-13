@@ -1,0 +1,28 @@
+
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion "26.0.2"
+
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        ndk {
+            abiFilters "armeabi-v7a", "x86"
+        }
+    }
+    lintOptions {
+       warning 'InvalidPackage'
+    }
+}
+
+dependencies {
+    compile 'com.facebook.react:react-native:0.20.+'
+    compile ('com.instabug.library:instabug:4.13.4'){
+        exclude group: 'com.android.support:appcompat-v7'
+    }
+
+}
